@@ -165,13 +165,15 @@ Data View : **`meteo_madagascar`** (champ temporel : `timestamp`).
 > Le fichier `kibana/dashboard.ndjson` contient l'export complet (Data View + 5 visualisations +
 > Dashboard), directement reimportable via **Stack Management > Saved Objects > Import**.
 
-### Captures d'ecran
+### Captures d'ecran et demonstration
 
-*(A inserer apres premiere ouverture du dashboard dans Kibana : `docs/dag_graph.png` et
-`docs/dashboard_kibana.png`)*
-
-- Graph View du DAG `etl_pipeline_meteo` dans Airflow.
-- Vue du Dashboard "Dashboard Meteo Madagascar" dans Kibana.
+- **`docs/DAGetlpipelineMETEOinit.png`** : Graph View du DAG `etl_pipeline_meteo` juste apres
+  activation, avant la premiere execution (etat initial des 4 taches).
+- **`docs/DAGetlpipelineMETEOsuccess.png`** : Graph View du DAG apres une execution complete
+  reussie (`extraction -> transformation -> controle_qualite -> chargement_elasticsearch`, toutes
+  les taches en succes).
+- **`docs/visualisationkibana.webm`** : demonstration video du Dashboard "Dashboard Meteo
+  Madagascar" dans Kibana (navigation dans les 5 visualisations Lens).
 
 ---
 
@@ -192,6 +194,10 @@ projet-data-engineering/
     queries.json
   kibana/
     dashboard.ndjson
+  docs/
+    DAGetlpipelineMETEOinit.png
+    DAGetlpipelineMETEOsuccess.png
+    visualisationkibana.webm
   docker-compose.yml
   requirements.txt
   README.md

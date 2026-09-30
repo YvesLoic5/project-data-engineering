@@ -1,48 +1,81 @@
 {
-  "description": "Requetes d'analyse utilisees pour repondre aux questions metier du domaine meteo",
-  "queries": {
-    "temperature_moyenne_par_ville": {
-      "size": 0,
-      "aggs": {
-        "par_ville": {
-          "terms": { "field": "ville", "size": 20 },
-          "aggs": {
-            "temperature_moyenne": { "avg": { "field": "temperature_c" } }
-          }
+    "description": "Requetes d'analyse utilisees pour repondre aux questions metier du domaine meteo",
+    "queries": {
+        "temperature_moyenne_par_ville": {
+            "size": 0,
+            "aggs": {
+                "par_ville": {
+                    "terms": {
+                        "field": "ville",
+                        "size": 20
+                    },
+                    "aggs": {
+                        "temperature_moyenne": {
+                            "avg": {
+                                "field": "temperature_c"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "ville_plus_pluvieuse": {
+            "size": 0,
+            "aggs": {
+                "par_ville": {
+                    "terms": {
+                        "field": "ville",
+                        "size": 20
+                    },
+                    "aggs": {
+                        "precipitation_totale": {
+                            "sum": {
+                                "field": "precipitation_mm"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "repartition_des_conditions_meteo": {
+            "size": 0,
+            "aggs": {
+                "par_condition": {
+                    "terms": {
+                        "field": "condition",
+                        "size": 20
+                    }
+                }
+            }
+        },
+        "heures_a_risque_de_vent_fort": {
+            "query": {
+                "range": {
+                    "vent_kmh": {
+                        "gt": 30
+                    }
+                }
+            },
+            "sort": [
+                {
+                    "vent_kmh": "desc"
+                }
+            ]
+        },
+        "temperature_maximale_et_minimale_globale": {
+            "size": 0,
+            "aggs": {
+                "temp_max": {
+                    "max": {
+                        "field": "temperature_c"
+                    }
+                },
+                "temp_min": {
+                    "min": {
+                        "field": "temperature_c"
+                    }
+                }
+            }
         }
-      }
-    },
-    "ville_plus_pluvieuse": {
-      "size": 0,
-      "aggs": {
-        "par_ville": {
-          "terms": { "field": "ville", "size": 20 },
-          "aggs": {
-            "precipitation_totale": { "sum": { "field": "precipitation_mm" } }
-          }
-        }
-      }
-    },
-    "repartition_des_conditions_meteo": {
-      "size": 0,
-      "aggs": {
-        "par_condition": {
-          "terms": { "field": "condition", "size": 20 }
-        }
-      }
-    },
-    "heures_a_risque_de_vent_fort": {
-      "query": {
-        "range": { "vent_kmh": { "gt": 30 } }
-      },
-      "sort": [ { "vent_kmh": "desc" } ]
-    },
-    "temperature_maximale_et_minimale_globale": {
-      "size": 0,
-      "aggs": {
-        "temp_max": { "max": { "field": "temperature_c" } },
-        "temp_min": { "min": { "field": "temperature_c" } }
-      }
     }
-  }
 }
