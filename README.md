@@ -4,6 +4,25 @@
 
 ---
 
+## Apercu du projet
+
+### DAG Airflow `etl_pipeline_meteo` — etat initial (avant execution)
+
+![DAG Airflow - etat initial](docs/DAGetlpipelineMETEOinit.png)
+
+### DAG Airflow `etl_pipeline_meteo` — execution complete reussie
+
+![DAG Airflow - execution reussie](docs/DAGetlpipelineMETEOsuccess.png)
+
+### Demonstration video du Dashboard Kibana
+
+[![Demonstration video Kibana](docs/visualisationkibana_thumbnail.png)](docs/visualisationkibana.webm)
+
+**[Cliquer ici pour lire/telecharger la video de demonstration](docs/visualisationkibana.webm)**
+(navigation dans les 5 visualisations du Dashboard "Dashboard Meteo Madagascar").
+
+---
+
 ## 1. Contexte
 
 Ce projet met en place une plateforme de collecte, transformation, analyse et visualisation de
@@ -165,15 +184,8 @@ Data View : **`meteo_madagascar`** (champ temporel : `timestamp`).
 > Le fichier `kibana/dashboard.ndjson` contient l'export complet (Data View + 5 visualisations +
 > Dashboard), directement reimportable via **Stack Management > Saved Objects > Import**.
 
-### Captures d'ecran et demonstration
-
-- **`docs/DAGetlpipelineMETEOinit.png`** : Graph View du DAG `etl_pipeline_meteo` juste apres
-  activation, avant la premiere execution (etat initial des 4 taches).
-- **`docs/DAGetlpipelineMETEOsuccess.png`** : Graph View du DAG apres une execution complete
-  reussie (`extraction -> transformation -> controle_qualite -> chargement_elasticsearch`, toutes
-  les taches en succes).
-- **`docs/visualisationkibana.webm`** : demonstration video du Dashboard "Dashboard Meteo
-  Madagascar" dans Kibana (navigation dans les 5 visualisations Lens).
+> Les captures d'ecran du DAG et la video de demonstration du dashboard sont visibles tout en
+> haut de ce README, dans la section **"Apercu du projet"**.
 
 ---
 
@@ -198,6 +210,7 @@ projet-data-engineering/
     DAGetlpipelineMETEOinit.png
     DAGetlpipelineMETEOsuccess.png
     visualisationkibana.webm
+    visualisationkibana_thumbnail.png
   docker-compose.yml
   requirements.txt
   README.md
