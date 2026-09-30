@@ -16,6 +16,15 @@
 
 ### Demonstration video du Dashboard Kibana
 
+<!--
+  Pour un lecteur video integre et lisible directement dans GitHub (comme sur les README
+  populaires), remplacer ce bloc par le lien genere automatiquement par GitHub :
+  1. Aller sur le depot GitHub > Issues > New Issue.
+  2. Glisser-deposer le fichier docs/visualisationkibana.webm dans la zone de texte.
+  3. Copier le lien https://github.com/user-attachments/assets/... genere.
+  4. Coller ce lien seul sur une ligne ci-dessous (sans les crochets markdown).
+-->
+
 [![Demonstration video Kibana](docs/visualisationkibana_thumbnail.png)](docs/visualisationkibana.webm)
 
 **[Cliquer ici pour lire/telecharger la video de demonstration](docs/visualisationkibana.webm)**
